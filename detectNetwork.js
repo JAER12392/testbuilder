@@ -60,7 +60,9 @@ var detectNetwork = function(cardNumber) {
     var start = 622126;
     var end = 622925;
 
-
+    if(dcNum.indexOf(twoDigits) !== -1 && cardNumber.length === 14){
+        return dinerClub;
+    }
 
     //I initialized a varaible that will be refrencing the first two numbers of the card number so I can reference it later
     if (!(switchNum.indexOf(fourDigits) !== -1) && (visaNum.indexOf(onedigit) !== -1) && (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19)) {
@@ -68,7 +70,7 @@ var detectNetwork = function(cardNumber) {
     }
 
 
-    if (mcNum.indexOf(twoDigits) !== -1) {
+    if (mcNum.indexOf(twoDigits) !== -1 && cardNumber.length === 16) {
         return mCard;
     }
 

@@ -42,35 +42,30 @@ var FILL_ME_IN = 'Fill this value in';
 //   });
 // });
 describe('Diner\'s Club', function() {
-    // Be careful, tests can have bugs too...
-    var assert = function(isTrue) {
-        if (isTrue) {
-            throw new Error('Test failed');
-        }
-
-    };
+  
+    var expect = chai.assert;
 
     it('has a prefix of 38 and a length of 14', function() {
-        assert(detectNetwork('3834567890123') === 'Diner\'s Club');
+        expect(detectNetwork('38345678901234') === 'Diner\'s Club');
     });
 
 
     it('has a prefix of 39 and a length of 14', function() {
-        assert(detectNetwork('3934567890123') === 'Diner\'s Club');
+        expect(detectNetwork('39345678901234') === 'Diner\'s Club');
     });
 });
 
 describe('American Express', function() {
     // It can get annoying to keep typing the if/throw, so here is a
     // helper function to throw an error if the input statement isn't true. 
-    var assert = chai.assert;
+    var expect = chai.assert;
 
     it('has a prefix of 34 and a length of 15', function() {
-        assert(detectNetwork('343456789012345') === 'American Express');
+        expect(detectNetwork('343456789012345') === 'American Express');
     });
 
     it('has a prefix of 37 and a length of 15', function() {
-        assert(detectNetwork('373456789012345') === 'American Express');
+        expect(detectNetwork('373456789012345') === 'American Express');
     });
 });
 
@@ -79,19 +74,19 @@ describe('Visa', function() {
     // Chai provides an assert that acts the same as our previous assert.
     // Search the documentation to figure out how to access it. 
     //   http://chaijs.com/
-    var assert = chai.assert;
+    var expect = chai.assert;
 
 
     it('has a prefix of 4 and a length of 13', function() {
-        assert(detectNetwork('4123456789012') === 'Visa');
+        expect(detectNetwork('4123456789012') === 'Visa');
     });
 
     it('has a prefix of 4 and a length of 16', function() {
-        assert(detectNetwork('4123456789012345') === 'Visa');
+        expect(detectNetwork('4123456789012345') === 'Visa');
     });
 
     it('has a prefix of 4 and a length of 19', function() {
-        assert(detectNetwork('4123456789012345678') === 'Visa');
+        expect(detectNetwork('4123456789012345678') === 'Visa');
     });
 });
 
@@ -139,7 +134,7 @@ describe('Discover', function() {
             });
 
             it('has a prefix of ' + prefix + ' and a length of 19', function() {
-                expect(detectNetwork(prefix + '3412345678901')).to.equal('Discover');
+                expect(detectNetwork(prefix + '3412345678901222')).to.equal('Discover');
             });
         })(prefix)
 
